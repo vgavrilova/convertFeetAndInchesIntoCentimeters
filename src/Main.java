@@ -6,10 +6,10 @@ public class Main {
         // If the method returned -1 (an invalid inserted value)
         // the program prints "Invalid Value. Try again!" out
 
-        double check = calcFeetAndInchesToCentimeters(255.98, 6700.56789);
+        double check = calcFeetAndInchesToCentimeters(255.98, 12);
         if (check >= 0) {
             System.out.println("Your result: " + check + " CM");
-        } else {
+        } else if (check == -1){
             System.out.println("Invalid Value. Try again!");
         }
     }
@@ -19,7 +19,7 @@ public class Main {
 
     public static double calcFeetAndInchesToCentimeters(double feet, double inches) {
 
-        return (feet >= 0) || ((inches >= 0) && (inches <= 12)) ? (((feet * 12) +
+        return ((feet >= 0) && (inches >= 0)) ? (((feet * 12) +
                 (calcFeetAndInchesToCentimeters(inches) * 12)) * 2.54d) : -1;
     }
 
